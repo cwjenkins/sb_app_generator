@@ -1,6 +1,7 @@
 # http://guides.rubyonrails.org/rails_application_templates.html
 
-@master_url = 'https://raw.github.com/smashingboxes/sb_app_generator/master'
+#@master_url = 'https://raw.github.com/smashingboxes/sb_app_generator/master'
+@master_url = 'https://github.com/cwjenkins/sb_app_generator.git'
 
 whoami = run('whoami', capture: true).strip
 
@@ -108,8 +109,8 @@ get_from_master_repo 'config/deploy.rb'
 empty_directory_with_keep_file 'config/deploy'
 get_from_master_repo 'config/deploy/production.rb'
 get_from_master_repo 'config/deploy/staging.rb'
-capify!
-gsub_file 'Capfile', %r{^\s*# load 'deploy/assets'}, "load 'deploy/assets'"
+#capify!
+@gsub_file 'Capfile', %r{^\s*# load 'deploy/assets'}, "load 'deploy/assets'"
 empty_directory_with_keep_file 'config/recipes/templates'
 get_from_master_repo 'config/recipes/base.rb'
 get_from_master_repo 'config/recipes/check.rb'

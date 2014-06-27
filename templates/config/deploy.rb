@@ -1,9 +1,13 @@
-# Capistrano Configuration
-# see commands available with cap -T
+# see commands available with mina -T
 # Look in config/deploy/production.rb and config/deploy/staging.rb to set the server specific configs (IP address)
 
-require 'bundler/capistrano'
-require 'capistrano/ext/multistage'
+require 'mina/bundler'
+require 'mina/rails'
+require 'mina/git'
+require 'mina/chruby'
+require 'mina/whenever'
+require 'mina_sidekiq/tasks'
+require 'mina/scp'
 
 load "config/recipes/base"
 load "config/recipes/shared"
